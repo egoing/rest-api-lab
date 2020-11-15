@@ -1,0 +1,227 @@
+<head>
+    <style>
+        textarea{
+            width:100%;
+            overflow-y:visible;
+        }
+        .run{
+            width:100%;
+            margin:0.2rem 0;
+        }
+        pre{
+            margin:0;
+        }
+        html{
+            margin:8rem 0;
+
+        }
+        body{
+            display:grid;
+            grid-template-columns: 1fr 1024px 1fr;
+            font-family: 'Spoqa Han Sans', 'Sans-serif';
+            font-weight: 100;
+        }
+        h1{
+            font-size:5rem;
+            text-align: center;
+        }
+        h3{
+            margin-top:5rem;
+            margin-bottom:0.2rem;
+        }
+    </style>
+ <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+    <script>
+    </script>
+</head>
+<body>
+    <div></div>
+    <div>
+
+        <h1>REST API 실험실</h1>
+
+        <h2>준비</h2>
+        <ol>
+            <li>
+                node.js 설치
+            </li>
+            <li>
+                json-server 설치<br>
+                npm i -g json-server
+            </li>
+            <li>
+                db.json 파일을 만듭니다. <br>
+                <pre>{"topic": [], "comment": []}</pre>
+            </li>
+            <li>
+                json-server 실행<br>
+                json-server --watch db.json<br>
+                => db.json 파일이 생성됩니다. 
+            </li>
+            <li>
+                개발자 도구의 Network 탭을 열고 ESC 키를 눌러서 콘솔창도 열어주세요.
+            </li>
+            <li>
+                실행버튼을 누르면 자바스크립트 코드가 실행됩니다. 
+            </li>
+        </ol>
+    
+        <h3>생성 - POST</h3>
+        <textarea id="post" rows="10">
+            fetch('topic', {
+                method:'POST', 
+                headers:{'content-type':'application/json'},
+                body:JSON.stringify({
+                    title:'fetch', body:'fetch is ...'
+                })
+            })
+                .then(
+                    function(type){
+                        return type.json()
+                    }
+                )
+                .then(
+                    function(result){
+                        console.log(result);
+                    }
+                )
+        </textarea>
+        <input class="run" type="button" value="실행" onclick="
+            eval(document.querySelector('#post').value);
+        ">
+        
+        <h3>콜렉션 읽기 - GET</h3>
+        <textarea id="get_collection" rows="10">
+            fetch('topic')
+            .then(
+                function(type){
+                    return type.json()
+                }
+            )
+            .then(
+                function(result){
+                    console.log(result);
+                }
+            )
+        </textarea>
+        <input class="run" type="button" value="실행" onclick="
+            eval(document.querySelector('#get_collection').value);
+        ">
+        
+        <h3>부분 읽기 - GET</h3>
+        <textarea id="get_element" rows="10">
+            fetch('topic/1')
+            .then(
+                function(type){
+                    return type.json()
+                }
+            )
+            .then(
+                function(result){
+                    console.log(result);
+                }
+            )
+        </textarea>
+        <input class="run" type="button" value="실행" onclick="
+            eval(document.querySelector('#get_element').value);
+        ">
+        
+        <h3>부분수정 - PATCH</h3>
+        전송하지 않은 데이터는 삭제되지 않는 것에 주목해주세요.
+        <textarea id="patch" rows="10">
+            fetch('topic/1', {
+                method:'PATCH', 
+                headers:{'content-type':'application/json'},
+                body:JSON.stringify({
+                    title:'fetch - patch'
+                })
+            })
+                .then(
+                    function(type){
+                        return type.json()
+                    }
+                )
+                .then(
+                    function(result){
+                        console.log(result);
+                    }
+                )
+        </textarea>
+        <input class="run" type="button" value="실행" onclick="
+            eval(document.querySelector('#patch').value);
+        ">
+        
+        <h3>전체수정 - PUT</h3>
+        전송하지 않은 데이터는 삭제되는 것에 주목해주세요.
+        <textarea id="put" rows="10">
+            fetch('topic/1', {
+                method:'PUT', 
+                headers:{'content-type':'application/json'},
+                body:JSON.stringify({
+                    title:'fetch - put'
+                })
+            })
+                .then(
+                    function(type){
+                        return type.json()
+                    }
+                )
+                .then(
+                    function(result){
+                        console.log(result);
+                    }
+                )
+        </textarea>
+        <input class="run" type="button" value="실행" onclick="
+            eval(document.querySelector('#put').value);
+        ">
+
+<h3>삭제 - DELETE</h3>
+<textarea id="delete" rows="10">
+    fetch('topic/1', {
+        method:'DELETE'
+    })
+        .then(
+            function(type){
+                return type.json()
+            }
+        )
+        .then(
+            function(result){
+                console.log(result);
+            }
+        )
+</textarea>
+<input class="run" type="button" value="실행" onclick="
+    eval(document.querySelector('#delete').value);
+">
+
+
+<h3>삭제 - DELETE</h3>
+콜렉션 전체가 삭제 됩니다. 위험한 명령이기 때문에 막혀있는 경우가 많습니다. 
+<textarea id="delete_collection" rows="10">
+    fetch('topic', {
+        method:'DELETE'
+    })
+        .then(
+            function(type){
+                return type.json()
+            }
+        )
+        .then(
+            function(result){
+                console.log(result);
+            }
+        )
+</textarea>
+<input class="run" type="button" value="실행" onclick="
+    eval(document.querySelector('#delete_collection').value);
+">
+        
+
+        
+        </div>
+        <div></div>
+
+</body>
+
