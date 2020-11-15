@@ -161,23 +161,23 @@ fetch('topics/2')
         <h3>부분수정 - PATCH</h3>
         전송하지 않은 데이터는 삭제되지 않는 것에 주목해주세요.
         <textarea id="patch" rows="10">
-            fetch('topics/2', {
-                method:'PATCH', 
-                headers:{'content-type':'application/json'},
-                body:JSON.stringify({
-                    title:'fetch - patch'
-                })
-            })
-                .then(
-                    function(type){
-                        return type.json()
-                    }
-                )
-                .then(
-                    function(result){
-                        console.log(result);
-                    }
-                )
+fetch('topics/2', {
+    method:'PATCH', 
+    headers:{'content-type':'application/json'},
+    body:JSON.stringify({
+        title:'fetch - patch'
+    })
+})
+    .then(
+        function(type){
+            return type.json()
+        }
+    )
+    .then(
+        function(result){
+            console.log(result);
+        }
+    )
         </textarea>
         <input class="run" type="button" value="실행" onclick="
             eval(document.querySelector('#patch').value);
@@ -186,23 +186,23 @@ fetch('topics/2')
         <h3>전체수정 - PUT</h3>
         전송하지 않은 데이터는 삭제되는 것에 주목해주세요.
         <textarea id="put" rows="10">
-            fetch('topics/2', {
-                method:'PUT', 
-                headers:{'content-type':'application/json'},
-                body:JSON.stringify({
-                    title:'fetch - put'
-                })
-            })
-                .then(
-                    function(type){
-                        return type.json()
-                    }
-                )
-                .then(
-                    function(result){
-                        console.log(result);
-                    }
-                )
+fetch('topics/2', {
+    method:'PUT', 
+    headers:{'content-type':'application/json'},
+    body:JSON.stringify({
+        title:'fetch - put'
+    })
+})
+    .then(
+        function(type){
+            return type.json()
+        }
+    )
+    .then(
+        function(result){
+            console.log(result);
+        }
+    )
         </textarea>
         <input class="run" type="button" value="실행" onclick="
             eval(document.querySelector('#put').value);
@@ -210,19 +210,19 @@ fetch('topics/2')
 
         <h3>삭제 - DELETE</h3>
         <textarea id="delete" rows="10">
-    fetch('topics/2', {
-        method:'DELETE'
-    })
-        .then(
-            function(type){
-                return type.json()
-            }
-        )
-        .then(
-            function(result){
-                console.log(result);
-            }
-        )
+fetch('topics/2', {
+    method:'DELETE'
+})
+    .then(
+        function(type){
+            return type.json()
+        }
+    )
+    .then(
+        function(result){
+            console.log(result);
+        }
+    )
 </textarea>
         <input class="run" type="button" value="실행" onclick="
     eval(document.querySelector('#delete').value);
@@ -232,19 +232,19 @@ fetch('topics/2')
         <h3>삭제 - DELETE</h3>
         콜렉션 전체가 삭제 됩니다. 위험한 명령이기 때문에 막혀있는 경우가 많습니다.
         <textarea id="delete_collection" rows="10">
-    fetch('topics', {
-        method:'DELETE'
-    })
-        .then(
-            function(type){
-                return type.json()
-            }
-        )
-        .then(
-            function(result){
-                console.log(result);
-            }
-        )
+fetch('topics', {
+    method:'DELETE'
+})
+    .then(
+        function(type){
+            return type.json()
+        }
+    )
+    .then(
+        function(result){
+            console.log(result);
+        }
+    )
 </textarea>
         <input class="run" type="button" value="실행" onclick="
     eval(document.querySelector('#delete_collection').value);
@@ -252,19 +252,19 @@ fetch('topics/2')
 
     <h3>관계</h3>
     <textarea id="relation" rows="10">
-        fetch('topics/1/comments', {
-            method:'GET'
-        })
-            .then(
-                function(type){
-                    return type.json()
-                }
-            )
-            .then(
-                function(result){
-                    console.log(result);
-                }
-            )
+fetch('topics/1/comments', {
+    method:'GET'
+})
+    .then(
+        function(type){
+            return type.json()
+        }
+    )
+    .then(
+        function(result){
+            console.log(result);
+        }
+    )
     </textarea>
             <input class="run" type="button" value="실행" onclick="
         eval(document.querySelector('#relation').value);
