@@ -84,7 +84,27 @@
     ]
 }
                 </pre>
-            </li>
+            </li>{
+                "topics": [
+                    {
+                        "id": 1,
+                        "title": "REST",
+                        "body": "REST is ..."
+                    }
+                ],
+                "comments": [
+                    {      
+                        "id": 1,
+                        "body": "POST is ...",
+                        "topicId":1 
+                    },
+                    {
+                        "id": 2,
+                        "body": "READ comments is ...",
+                        "topicId":1 
+                    }
+                ]
+              }
             <li>
                 json-server 실행<br>
                 json-server --watch db.json<br>
