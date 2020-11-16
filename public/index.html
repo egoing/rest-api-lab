@@ -99,7 +99,7 @@
         </ol>
 
         <h3>생성 - POST</h3>
-        <textarea id="post" rows="10">
+        <textarea id="post" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics', {
     method:'POST', 
     headers:{'content-type':'application/json'},
@@ -108,8 +108,9 @@ fetch('topics', {
     })
 })
     .then(
-        function(type){
-            return type.json()
+        function(response){
+            console.log('status', response.status);
+            return response.json()
         }
     )
     .then(
@@ -123,11 +124,11 @@ fetch('topics', {
         ">
 
         <h3>콜렉션 읽기 - GET</h3>
-        <textarea id="get_collection" rows="10">
-fetch('topics')
+        <textarea id="get_collection" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+fetch('topics', {method:'GET'})
 .then(
-    function(type){
-        return type.json()
+    function(response){
+        return response.json()
     }
 )
 .then(
@@ -141,11 +142,11 @@ fetch('topics')
         ">
 
         <h3>부분 읽기 - GET</h3>
-        <textarea id="get_element" rows="10">
+        <textarea id="get_element" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics/2')
 .then(
-    function(type){
-        return type.json()
+    function(response){
+        return response.json()
     }
 )
 .then(
@@ -160,7 +161,7 @@ fetch('topics/2')
 
         <h3>부분수정 - PATCH</h3>
         전송하지 않은 데이터는 삭제되지 않는 것에 주목해주세요.
-        <textarea id="patch" rows="10">
+        <textarea id="patch" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics/2', {
     method:'PATCH', 
     headers:{'content-type':'application/json'},
@@ -169,8 +170,8 @@ fetch('topics/2', {
     })
 })
     .then(
-        function(type){
-            return type.json()
+        function(response){
+            return response.json()
         }
     )
     .then(
@@ -185,7 +186,7 @@ fetch('topics/2', {
 
         <h3>전체수정 - PUT</h3>
         전송하지 않은 데이터는 삭제되는 것에 주목해주세요.
-        <textarea id="put" rows="10">
+        <textarea id="put" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics/2', {
     method:'PUT', 
     headers:{'content-type':'application/json'},
@@ -194,8 +195,8 @@ fetch('topics/2', {
     })
 })
     .then(
-        function(type){
-            return type.json()
+        function(response){
+            return response.json()
         }
     )
     .then(
@@ -209,13 +210,13 @@ fetch('topics/2', {
         ">
 
         <h3>삭제 - DELETE</h3>
-        <textarea id="delete" rows="10">
+        <textarea id="delete" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics/2', {
     method:'DELETE'
 })
     .then(
-        function(type){
-            return type.json()
+        function(response){
+            return response.json()
         }
     )
     .then(
@@ -231,13 +232,13 @@ fetch('topics/2', {
 
         <h3>삭제 - DELETE</h3>
         콜렉션 전체가 삭제 됩니다. 위험한 명령이기 때문에 막혀있는 경우가 많습니다.
-        <textarea id="delete_collection" rows="10">
+        <textarea id="delete_collection" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics', {
     method:'DELETE'
 })
     .then(
-        function(type){
-            return type.json()
+        function(response){
+            return response.json()
         }
     )
     .then(
@@ -251,13 +252,13 @@ fetch('topics', {
         ">
 
     <h3>관계</h3>
-    <textarea id="relation" rows="10">
+    <textarea id="relation" rows="10" onclick='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
 fetch('topics/1/comments', {
     method:'GET'
 })
     .then(
-        function(type){
-            return type.json()
+        function(response){
+            return response.json()
         }
     )
     .then(
